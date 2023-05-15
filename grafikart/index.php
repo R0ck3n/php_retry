@@ -15,9 +15,7 @@
     <script type="module" src="main.js"></script>
     <div>
         <?php
-            var_dump($_POST);
-        if( isset($_POST['donneeClient'])){
-        };
+
 
         ?>
     </div>
