@@ -14,7 +14,7 @@ require  'grafikart.php';
     <div>
         <?php
             echo'<pre>';
-                var_dump(codeWars());
+                var_dump(grafikart());
             echo'</pre>';
         ?>
     </div>
