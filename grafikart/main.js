@@ -1,17 +1,19 @@
-const xhr = new XMLHttpRequest();
-const donneeClient = prompt("Entrée une valeur :");
+const url = "/";
+const data = { valeur: prompt("saisir un chiffre") };
 
-xhr.open("POST", "index.php", true);
-
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-xhr.onreadystatechange = function () {
-  //Call a function when the state changes.
-  if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-    console.log("OK");
-  }
-};
-
-xhr.send(donneeClient);
-
-console.log(donneeClient);
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(data),
+})
+  .then((response) => response.text())
+  .then((data) => {
+    const div = document.querySelector("div");
+    div.innerHTML = data.split("head>")[2].split("  ")[6];
+    console.log("Réponse du serveur :", data.split("head>")[2].split("  ")[6]);
+  })
+  .catch((error) => {
+    console.error("Erreur :", error);
+  });
