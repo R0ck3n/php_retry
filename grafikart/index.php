@@ -1,5 +1,5 @@
 <?php
-require  'grafikart.php';
+
 ?>
 <!doctype html>
 <html lang="en">
