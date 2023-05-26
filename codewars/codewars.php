@@ -1,16 +1,24 @@
 <?php
 
 function codeWars() {
-    return XO("oox") ;
+    return findIt([1,1,2,-2,5,2,4,4,-1,-2,5]) ;
 }
 
 
-function XO(string $s):array {
-    $xCount = 0;
-    $oCount = 0;
 
-    $array1= str_split($s);
-    $array2 = [...$array1, 'yolo', ...$array1];
-    
-    return $array2;
+function findIt(array $seq) {
+    $newArray = array_flip(array_unique($seq));
+
+    foreach ($newArray as $key => $val ){
+        $newArray[$key] = 0;
+    }
+
+    foreach ($seq as $value){
+        $newArray[$value] += 1;
+    }
+
+    foreach ($newArray as $key =>$repeat){
+        if ($repeat %2 !== 0) return $key;
+    }
+
 }
